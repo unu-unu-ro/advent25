@@ -32,12 +32,12 @@ class AdventApp {
     const day = urlParams.get("zi");
 
     // Show/hide recommendation block depending on route
-    const recommendation = document.querySelector('.advent-recommendation');
+    const recommendation = document.querySelector(".advent-recommendation");
     if (recommendation) {
       if (day) {
-        recommendation.style.display = 'none';
+        recommendation.style.display = "none";
       } else {
-        recommendation.style.display = '';
+        recommendation.style.display = "";
       }
     }
 
