@@ -31,6 +31,16 @@ class AdventApp {
     const urlParams = new URLSearchParams(window.location.search);
     const day = urlParams.get("zi");
 
+    // Show/hide recommendation block depending on route
+    const recommendation = document.querySelector('.advent-recommendation');
+    if (recommendation) {
+      if (day) {
+        recommendation.style.display = 'none';
+      } else {
+        recommendation.style.display = '';
+      }
+    }
+
     if (day) {
       this.currentDay = parseInt(day);
       this.renderDay(this.currentDay);
