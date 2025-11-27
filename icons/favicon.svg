@@ -1,10 +1,36 @@
 <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="32" height="32" rx="4" fill="#1a2928"/>
+  <!-- Deep green background -->
+  <rect width="32" height="32" rx="4" fill="#1a4d3e"/>
   
-  <!-- Star/Light symbol -->
-  <path d="M16 6 L17.5 11 L22.5 11.5 L18.5 15 L19.5 20 L16 17 L12.5 20 L13.5 15 L9.5 11.5 L14.5 11 Z" fill="#D4A850" stroke="#D4A850" stroke-width="0.5"/>
+  <!-- Outer glow for star -->
+  <path d="M16 5 L17.8 10.5 L23.5 11 L19.2 14.8 L20.5 20.5 L16 17.5 L11.5 20.5 L12.8 14.8 L8.5 11 L14.2 10.5 Z" 
+        fill="#d4a850" 
+        opacity="0.4" 
+        filter="blur(1.5)"/>
   
-  <!-- Number 25 -->
-  <text x="16" y="28" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#D4A850" text-anchor="middle">25</text>
+  <!-- Main golden star -->
+  <path d="M16 6 L17.5 11 L22.5 11.5 L18.5 15 L19.5 20 L16 17 L12.5 20 L13.5 15 L9.5 11.5 L14.5 11 Z" 
+        fill="#d4a850" 
+        stroke="#b8953d" 
+        stroke-width="0.6"/>
+  
+  <!-- Inner highlight -->
+  <path d="M16 9 L16.8 11.5 L19.5 12 L17.5 13.8 L18 16.5 L16 15 L14 16.5 L14.5 13.8 L12.5 12 L15.2 11.5 Z" 
+        fill="#f4d89f" 
+        opacity="0.85"/>
+  
+  <!-- Center sparkle -->
+  <circle cx="16" cy="13.5" r="1.2" fill="#fff9e8" opacity="0.95"/>
+  
+  <!-- Subtle rays -->
+  <g opacity="0.25" stroke="#d4a850" stroke-width="0.8" stroke-linecap="round">
+    <line x1="16" y1="2" x2="16" y2="4"/>
+    <line x1="16" y1="28" x2="16" y2="30"/>
+    <line x1="2" y1="13.5" x2="4" y2="13.5"/>
+    <line x1="28" y1="13.5" x2="30" y2="13.5"/>
+    <line x1="6" y1="6" x2="7.5" y2="7.5"/>
+    <line x1="24.5" y1="24.5" x2="26" y2="26"/>
+    <line x1="26" y1="6" x2="24.5" y2="7.5"/>
+    <line x1="7.5" y1="24.5" x2="6" y2="26"/>
+  </g>
 </svg>

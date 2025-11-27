@@ -29,7 +29,7 @@ class AdventApp {
 
   handleRouting() {
     const urlParams = new URLSearchParams(window.location.search);
-    const day = urlParams.get("day");
+    const day = urlParams.get("zi");
 
     if (day) {
       this.currentDay = parseInt(day);
@@ -62,7 +62,7 @@ class AdventApp {
       const lockedClass = isAvailable ? "" : " locked";
 
       calendarHTML += `
-        <a href="?day=${dayNumber}" class="calendar-day${lockedClass}">
+        <a href="?zi=${dayNumber}" class="calendar-day${lockedClass}">
           <span class="day-number">${dayNumber}</span>
           <span class="day-date">Decembrie </span>
           <span class="day-preview-title">${day.title}</span>
@@ -122,13 +122,13 @@ class AdventApp {
         <nav class="navigation">
           ${
             prevDay
-              ? `<a href="?day=${prevDay}" class="nav-btn">← Ziua ${prevDay}</a>`
+              ? `<a href="?zi=${prevDay}" class="nav-btn">← Ziua ${prevDay}</a>`
               : '<span class="nav-btn disabled">← Anterioara</span>'
           }
           <a href="/" class="nav-btn nav-btn-home">Calendar</a>
           ${
             nextDay
-              ? `<a href="?day=${nextDay}" class="nav-btn">Ziua ${nextDay} →</a>`
+              ? `<a href="?zi=${nextDay}" class="nav-btn">Ziua ${nextDay} →</a>`
               : '<span class="nav-btn disabled">Următoarea →</span>'
           }
         </nav>
