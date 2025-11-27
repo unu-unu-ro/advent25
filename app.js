@@ -57,12 +57,15 @@ class AdventApp {
     this.data.days.forEach((day) => {
       const dayNumber = day.day;
       const isDecember = currentMonth === 11; // December
-      // Allow all days to be clickable, just style locked ones differently
+      // Only allow click if available
       const isAvailable = isDecember && currentDate >= dayNumber;
       const lockedClass = isAvailable ? "" : " locked";
+      const pointerAttr = isAvailable
+        ? ""
+        : ' style="pointer-events:none;cursor:default;" tabindex="-1" aria-disabled="true"';
 
       calendarHTML += `
-        <a href="?zi=${dayNumber}" class="calendar-day${lockedClass}">
+        <a href="?zi=${dayNumber}" class="calendar-day${lockedClass}"${pointerAttr}>
           <span class="day-number">${dayNumber}</span>
           <span class="day-date">Decembrie </span>
           <span class="day-preview-title">${day.title}</span>
@@ -102,6 +105,13 @@ class AdventApp {
 
     const prevDay = dayNumber > 1 ? dayNumber - 1 : null;
     const nextDay = dayNumber < 25 ? dayNumber + 1 : null;
+
+    // Determine if next day is available (same logic as calendar)
+    const today = new Date();
+    const currentMonth = today.getMonth(); // 0-11 (December = 11)
+    const currentDate = today.getDate();
+    const isDecember = currentMonth === 11;
+    const nextDayAvailable = nextDay && isDecember && currentDate >= nextDay;
 
     const devotionalHTML = `
       <div class="devotional-reading">
@@ -153,7 +163,9 @@ class AdventApp {
           <a href="/" class="nav-btn nav-btn-home">Calendar</a>
           ${
             nextDay
-              ? `<a href="?zi=${nextDay}" class="nav-btn">Ziua ${nextDay} →</a>`
+              ? nextDayAvailable
+                ? `<a href="?zi=${nextDay}" class="nav-btn">Ziua ${nextDay} →</a>`
+                : `<span class="nav-btn disabled">Ziua ${nextDay} →</span>`
               : '<span class="nav-btn disabled">Următoarea →</span>'
           }
         </nav>
