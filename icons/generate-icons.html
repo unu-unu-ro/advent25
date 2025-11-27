@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Icon Generator</title>
+</head>
+<body>
+  <canvas id="canvas"></canvas>
+  <script>
+    // Generate icons programmatically
+    const sizes = [16, 32, 72, 96, 128, 144, 152, 180, 192, 384, 512];
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    
+    sizes.forEach(size => {
+      canvas.width = size;
+      canvas.height = size;
+      
+      // Background
+      ctx.fillStyle = '#1a2928';
+      ctx.fillRect(0, 0, size, size);
+      
+      // Star
+      const centerX = size / 2;
+      const centerY = size * 0.35;
+      const outerRadius = size * 0.15;
+      const innerRadius = size * 0.07;
+      
+      ctx.fillStyle = '#D4A850';
+      ctx.beginPath();
+      for (let i = 0; i < 10; i++) {
+        const radius = i % 2 === 0 ? outerRadius : innerRadius;
+        const angle = (Math.PI * 2 * i) / 10 - Math.PI / 2;
+        const x = centerX + radius * Math.cos(angle);
+        const y = centerY + radius * Math.sin(angle);
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fill();
+      
+      // Number 25
+      ctx.fillStyle = '#D4A850';
+      ctx.font = `bold ${size * 0.28}px Arial`;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText('25', centerX, size * 0.72);
+      
+      // Download
+      const link = document.createElement('a');
+      link.download = `icon-${size}.png`;
+      link.href = canvas.toDataURL();
+      link.click();
+    });
+    
+    // OG Image (1200x630)
+    canvas.width = 1200;
+    canvas.height = 630;
+    ctx.fillStyle = '#1a2928';
+    ctx.fillRect(0, 0, 1200, 630);
+    
+    // Large star
+    const ogCenterX = 600;
+    const ogCenterY = 250;
+    const ogOuterRadius = 80;
+    const ogInnerRadius = 35;
+    
+    ctx.fillStyle = '#D4A850';
+    ctx.beginPath();
+    for (let i = 0; i < 10; i++) {
+      const radius = i % 2 === 0 ? ogOuterRadius : ogInnerRadius;
+      const angle = (Math.PI * 2 * i) / 10 - Math.PI / 2;
+      const x = ogCenterX + radius * Math.cos(angle);
+      const y = ogCenterY + radius * Math.sin(angle);
+      if (i === 0) ctx.moveTo(x, y);
+      else ctx.lineTo(x, y);
+    }
+    ctx.closePath();
+    ctx.fill();
+    
+    // Title
+    ctx.fillStyle = '#D4A850';
+    ctx.font = 'bold 64px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Devoțional de Advent', 600, 420);
+    
+    ctx.font = '48px Arial';
+    ctx.fillStyle = '#C9C5B8';
+    ctx.fillText('25 Zile de Speranță și Lumină', 600, 500);
+    
+    const ogLink = document.createElement('a');
+    ogLink.download = 'og-image.png';
+    ogLink.href = canvas.toDataURL();
+    ogLink.click();
+  </script>
+</body>
+</html>

@@ -84,8 +84,8 @@ body {
 /* Header */
 .main-header {
   text-align: center;
-  padding: 32px 20px;
-  margin-bottom: 48px;
+  padding: 16px 16px;
+  margin-bottom: 24px;
   border-bottom: 1px solid var(--border-subtle);
   position: relative;
 }
@@ -93,23 +93,31 @@ body {
 .main-header::after {
   content: "✦";
   position: absolute;
-  bottom: -14px;
+  bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
   background: var(--bg-primary);
-  padding: 0 16px;
+  padding: 0 12px;
   color: var(--accent-gold);
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .main-header h1 {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
   font-weight: 700;
   color: var(--accent-gold);
   text-transform: uppercase;
-  letter-spacing: 0.15em;
-  margin-bottom: 12px;
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+}
+
+.main-header h1 a {
+  transition: opacity 0.2s ease;
+}
+
+.main-header h1 a:hover {
+  opacity: 0.8;
 }
 
 .subtitle {
@@ -211,33 +219,33 @@ body {
 
 /* Compact header for reading pages */
 .devotional-reading .main-header {
-  padding: 20px 16px;
-  margin-bottom: 32px;
+  padding: 12px 12px;
+  margin-bottom: 20px;
 }
 
 .devotional-reading .main-header h1 {
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  margin-bottom: 8px;
+  font-size: clamp(1.3rem, 3.5vw, 1.8rem);
+  margin-bottom: 4px;
 }
 
 .devotional-reading .subtitle {
-  font-size: clamp(0.85rem, 1.8vw, 0.95rem);
+  font-size: clamp(0.75rem, 1.5vw, 0.85rem);
 }
 
 .reading-header {
   text-align: center;
-  margin-bottom: 32px;
-  padding-bottom: 20px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
   border-bottom: 1px solid var(--border-subtle);
 }
 
 .reading-day-label {
   font-family: var(--font-display);
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
   display: block;
 }
 
@@ -271,6 +279,7 @@ body {
   color: var(--text-primary);
   font-style: italic;
   margin-bottom: 12px;
+  text-indent: 2em;
 }
 
 .verse-reference {
@@ -296,10 +305,6 @@ body {
 .devotional-content p {
   margin-bottom: 1.5em;
   text-indent: 2em;
-}
-
-.devotional-content p:first-child {
-  text-indent: 0;
 }
 
 .devotional-content p:last-child {
