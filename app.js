@@ -178,7 +178,9 @@ class AdventApp {
     const fbBtn = document.getElementById("shareFacebook");
     if (fbBtn) {
       fbBtn.addEventListener("click", () => {
-        const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`;
+        const fbUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+          shareUrl
+        )}`;
         window.open(fbUrl, "_blank", "width=600,height=400");
       });
     }
@@ -187,7 +189,9 @@ class AdventApp {
     const waBtn = document.getElementById("shareWhatsapp");
     if (waBtn) {
       waBtn.addEventListener("click", () => {
-        const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText + " " + shareUrl)}`;
+        const waUrl = `https://wa.me/?text=${encodeURIComponent(
+          shareText + " " + shareUrl
+        )}`;
         window.open(waUrl, "_blank");
       });
     }
@@ -209,7 +213,8 @@ class AdventApp {
             // Fallback: copy to clipboard
             await navigator.clipboard.writeText(shareUrl);
             const originalHTML = nativeBtn.innerHTML;
-            nativeBtn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+            nativeBtn.innerHTML =
+              '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>';
             setTimeout(() => {
               nativeBtn.innerHTML = originalHTML;
             }, 2000);
