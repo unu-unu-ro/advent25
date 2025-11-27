@@ -311,6 +311,135 @@ body {
   margin-bottom: 0;
 }
 
+/* Share Section */
+.share-section {
+  text-align: center;
+  margin: 40px 0 24px;
+  padding: 32px 0;
+}
+
+.share-label {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  padding: 0 20px;
+}
+
+.share-label::before,
+.share-label::after {
+  content: "✦";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-gold);
+  font-size: 0.7rem;
+  opacity: 0.6;
+}
+
+.share-label::before {
+  left: 0;
+}
+
+.share-label::after {
+  right: 0;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.share-icon-btn {
+  width: 44px;
+  height: 44px;
+  border: 1.5px solid var(--border-subtle);
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.share-icon-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+.share-icon-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.share-icon-btn:active {
+  transform: translateY(0);
+}
+
+.share-facebook:hover {
+  background: #1877f2;
+  border-color: #1877f2;
+  color: white;
+}
+
+.share-whatsapp:hover {
+  background: #25d366;
+  border-color: #25d366;
+  color: white;
+}
+
+.share-native:hover {
+  background: var(--accent-gold);
+  border-color: var(--accent-gold);
+  color: var(--bg-primary);
+}
+
+@media (max-width: 600px) {
+  .share-section {
+    margin: 32px 0 20px;
+    padding: 24px 0;
+  }
+
+  .share-label {
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+  }
+
+  .share-buttons {
+    gap: 16px;
+  }
+
+  .share-icon-btn {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .share-label {
+    font-size: 0.8rem;
+  }
+
+  .share-buttons {
+    gap: 14px;
+  }
+
+  .share-icon-btn {
+    width: 44px;
+    height: 44px;
+  }
+}
+
 /* Navigation Buttons */
 .navigation {
   display: flex;
