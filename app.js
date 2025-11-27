@@ -77,7 +77,7 @@ class AdventApp {
     // Add attribution footer
     calendarHTML += `
       <footer class="attribution">
-        <p>Advent 2025 cu <a href="https://www.unu-unu.ro/" target="_blank" rel="noopener">Biserica Unu Unu</a></p>
+        <p>Un proiect <a href="https://www.unu-unu.ro/" target="_blank" rel="noopener">Biserica Unu Unu</a> · 2025</p>
         <p>Material oferit de <a href="https://www.magnagratia.org/" target="_blank" rel="noopener">Magna Gratia</a> · <a href="https://www.magnagratia.org/carti/215-gngj-romanian-piper/" target="_blank" rel="noopener">"O Veste Bună, O Mare Bucurie" de John Piper</a></p>
       </footer>
     `;
@@ -170,7 +170,7 @@ class AdventApp {
           }
         </nav>
         <footer class="attribution">
-          <p>Advent 2025 cu <a href="https://www.unu-unu.ro/" target="_blank" rel="noopener">Biserica Unu Unu</a></p>
+          <p>Un proiect <a href="https://www.unu-unu.ro/" target="_blank" rel="noopener">Biserica Unu Unu</a> · 2025</p>
           <p>Material oferit de <a href="https://www.magnagratia.org/" target="_blank" rel="noopener">Magna Gratia</a></p>
         </footer>
       </div>
