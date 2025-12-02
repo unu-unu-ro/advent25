@@ -45,8 +45,73 @@ class AdventApp {
       this.currentDay = parseInt(day);
       this.renderDay(this.currentDay);
     } else {
+      // Check if we should auto-redirect during December
+      this.checkAndRedirect();
+    }
+  }
+
+  checkAndRedirect() {
+    const today = new Date();
+    const currentMonth = today.getMonth(); // 0-11 (December = 11)
+    const currentDate = today.getDate();
+
+    // Only redirect during December and only for valid advent days (1-25)
+    if (currentMonth === 11 && currentDate >= 1 && currentDate <= 25) {
+      const dayData = this.data?.days?.find((d) => d.day === currentDate);
+      if (dayData) {
+        this.showRedirectAlert(currentDate, dayData.title);
+      } else {
+        this.renderCalendar();
+      }
+    } else {
       this.renderCalendar();
     }
+  }
+
+  showRedirectAlert(dayNumber, dayTitle) {
+    // Create modal overlay
+    const modal = document.createElement("div");
+    modal.className = "redirect-modal";
+    modal.innerHTML = `
+      <div class="redirect-content">
+        <h3>Redirecționare către...</h3>
+        <p class="redirect-day">Ziua ${dayNumber} - ${dayTitle}</p>
+        <div class="loading-bar-container">
+          <div class="loading-bar" id="loadingBar"></div>
+        </div>
+        <button class="cancel-redirect-btn" id="cancelRedirect">Rămâi pe calendar</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+
+    let redirectTimeout;
+    let cancelled = false;
+
+    // Cancel button handler
+    const cancelBtn = modal.querySelector("#cancelRedirect");
+    cancelBtn.addEventListener("click", () => {
+      cancelled = true;
+      clearTimeout(redirectTimeout);
+      modal.classList.remove("show");
+      setTimeout(() => {
+        modal.remove();
+        this.renderCalendar();
+      }, 300);
+    });
+
+    // Trigger animation
+    setTimeout(() => {
+      modal.classList.add("show");
+      const loadingBar = document.getElementById("loadingBar");
+      loadingBar.style.width = "100%";
+    }, 10);
+
+    // Redirect after 2.5 seconds if not cancelled
+    redirectTimeout = setTimeout(() => {
+      if (!cancelled) {
+        window.location.href = `?zi=${dayNumber}`;
+      }
+    }, 4000);
   }
 
   renderCalendar() {
